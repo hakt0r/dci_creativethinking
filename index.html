@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>B4U - Pitch</title>
+    <style>
+        body {
+            padding:     0;
+            margin:      0;
+            width:       100vw;
+            height:      100vh;
+            overflow:    hidden;
+            position:    relative;
+        }
+        section {
+            background:#f3ffd7;
+            position: absolute;
+            top:      0;
+            left:     0;
+            right:    0;
+            bottom:   0;
+            padding:  5vh 5vw;
+            display: none;
+        }
+        section.active {
+            display: initial;
+        }
+        #app1 {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            transform: rotate(20deg);
+            opacity: 0.3;
+        }
+        #logo {
+            max-height: 90vh;
+            width:80vw;
+            margin-left:5vw;
+        }
+        * {
+            font-family: "Roboto", sans-serif; 
+            font-size: 6vh;
+            user-select: none;
+        }
+        h1 { font-size: 8vh; position: absolute; bottom: 1vh; left:0; right:0; text-align: center; color: #ff6600ff; }
+        h2 { font-size: 7vh; margin-left: 5vw; }
+        li { margin-top: 0.5em; margin-left: 8vw; }
+    </style>
+    <script>
+        document.addEventListener('click',(e)=>{
+            var list = Array.from(document.querySelectorAll('section'));
+            var actv = document.querySelector('section.active');
+            var nxid = list.indexOf(actv);
+            if ( e.shiftKey ){
+                nxid = ( nxid + list.length - 1 ) % list.length;
+            } else {
+                nxid = ( nxid + 1 ) % list.length;
+            }
+            var next = list[nxid];
+            actv.classList.remove('active');
+            next.classList.add('active');
+        })
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class=active>
+        <img width="100%" id=logo src="logo.svg" alt="logo">
+        <h1>bikes for you</h1>
+    </section>
+    <section>
+        <h2>The Idea</h2>
+        <ul>
+            <li>Improve public transportation</li>
+            <li>Help tourism, economy and environment</li>
+        </ul>
+        <h2>How?</h2>
+        <ul>
+            <li>Free rental bikes / public transport</li>
+            <li>Vouchers for food, events, city attractions</li>
+            <li>Combined into a complete package / app</li>
+        </ul>
+    </section>
+    <section>
+        <h2>The APP</h2>
+        <ul>
+            <li>Connected to an PayPal account or credit card</li>
+            <li>Unlocks the free bikes</li>
+            <li>City attractions</li>
+            <li>Restaurants</li>
+            <li>Events: festival dates, concerts</li>
+        </ul>
+        <img id=app1 src="mapa.svg">
+    </section>
+    <section>
+        <h2>Financing / Revenue</h2>
+        <ul>
+            <li>Public financing (tourism argument)</li>
+            <li>In-App Ads from local businesses</li>
+            <li>Listing-fee for companies</li>
+            <li>Indirectly by providing discounts</li>
+            <li>Premium members</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Incentive for Companies / Cities</h2>
+        <ul>
+            <li>Mobile population</li>
+            <li>Less street weardown / maintenance</li>
+            <li>More customers for businesses</li>
+            <li>More life on the streets</li>
+            <li>More attractive to tourists</li>
+            <li>Connect the city / town businesses</li>
+        </ul>
+    </section>            
+</body>
+</html>
